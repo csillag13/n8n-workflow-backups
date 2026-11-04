@@ -1,0 +1,68 @@
+{
+  "id": "11Ec3f1vCPEj5Mh7",
+  "name": "QR code stuck problem",
+  "active": false,
+  "nodes": [
+    {
+      "id": "b20bbfc7-4602-4c82-b86d-bb8bb469cab9",
+      "name": "1. Régi beragadás törlése",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -224,
+        -16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "9748aa28-2535-4c14-b366-6c88fcd494bf",
+      "name": "2. Új példány és QR indítása",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        16,
+        -16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "36a3cc93-b1cc-453e-8c01-2f6f13088258",
+      "name": "3. Friss QR kód lekérése",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        256,
+        -16
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "1. Régi beragadás törlése": {
+      "main": [
+        [
+          {
+            "node": "2. Új példány és QR indítása",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2. Új példány és QR indítása": {
+      "main": [
+        [
+          {
+            "node": "3. Friss QR kód lekérése",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-10-31T15:00:19.300Z"
+}
