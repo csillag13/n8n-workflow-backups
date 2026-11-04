@@ -86,8 +86,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1664,
-        -80
+        1744,
+        -96
       ],
       "disabled": false
     },
@@ -111,7 +111,7 @@
         1232,
         -336
       ],
-      "disabled": true
+      "disabled": false
     },
     {
       "id": "0e7666b7-9e64-4e85-8719-201a8ad8e61d",
@@ -254,5 +254,5 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "updatedAt": "2026-11-04T12:58:34.604Z"
+  "updatedAt": "2026-11-04T12:59:28.634Z"
 }
