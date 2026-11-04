@@ -101,6 +101,17 @@
         -160
       ],
       "disabled": false
+    },
+    {
+      "id": "91652c68-1142-41da-9368-2089c1a10ba0",
+      "name": "Send a message",
+      "type": "n8n-nodes-smstools.smstools",
+      "typeVersion": 1,
+      "position": [
+        752,
+        -368
+      ],
+      "disabled": false
     }
   ],
   "connections": {
@@ -190,7 +201,13 @@
     },
     "Loop Over Items": {
       "main": [
-        [],
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ],
         [
           {
             "node": "GitHub GET existing",
@@ -215,5 +232,5 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "updatedAt": "2026-11-04T12:33:47.321Z"
+  "updatedAt": "2026-11-04T12:54:54.810Z"
 }
