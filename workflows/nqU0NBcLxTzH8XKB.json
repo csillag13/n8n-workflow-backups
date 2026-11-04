@@ -108,10 +108,10 @@
       "type": "n8n-nodes-smstools.smstools",
       "typeVersion": 1,
       "position": [
-        1232,
-        -336
+        992,
+        -400
       ],
-      "disabled": false
+      "disabled": true
     },
     {
       "id": "0e7666b7-9e64-4e85-8719-201a8ad8e61d",
@@ -119,8 +119,19 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        896,
-        -336
+        656,
+        -480
+      ],
+      "disabled": false
+    },
+    {
+      "id": "23025b1b-97de-432d-8f5b-de3c8c00b40d",
+      "name": "Send a message1",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        992,
+        -560
       ],
       "disabled": false
     }
@@ -243,16 +254,26 @@
       "main": [
         [
           {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          },
+          {
             "node": "Send a message",
             "type": "main",
             "index": 0
           }
         ]
       ]
+    },
+    "Send a message1": {
+      "main": [
+        []
+      ]
     }
   },
   "settings": {
     "executionOrder": "v1"
   },
-  "updatedAt": "2026-11-04T12:59:28.634Z"
+  "updatedAt": "2026-11-04T14:44:23.815Z"
 }
