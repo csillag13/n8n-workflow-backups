@@ -1,0 +1,134 @@
+{
+  "id": "ShkGJQaxefbNKA2b",
+  "name": "Email then Odoo Discuss",
+  "active": false,
+  "nodes": [
+    {
+      "id": "7c143105-af47-4e12-9e2f-ed781ee823bf",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1024,
+        16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "70037ade-3cd3-47ff-aca8-c63f5945da76",
+      "name": "Send an Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        -800,
+        16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "b6470b85-a1b5-4cf9-be20-e3474ebd84d1",
+      "name": "Odoo Login",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -560,
+        16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "62aed600-fe4e-498a-a237-fc1cd29bff41",
+      "name": "Find Discuss Channel",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -320,
+        16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "268cfdc6-97ff-4273-842d-f5b3abef9e57",
+      "name": "Channel Found?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -80,
+        16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "d71e2a58-834d-4078-8c6a-abeef32f1306",
+      "name": "Post to Discuss",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        144,
+        -48
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send an Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send an Email": {
+      "main": [
+        [
+          {
+            "node": "Odoo Login",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Odoo Login": {
+      "main": [
+        [
+          {
+            "node": "Find Discuss Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Discuss Channel": {
+      "main": [
+        [
+          {
+            "node": "Channel Found?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Channel Found?": {
+      "main": [
+        [
+          {
+            "node": "Post to Discuss",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-02-15T22:28:44.000Z"
+}
