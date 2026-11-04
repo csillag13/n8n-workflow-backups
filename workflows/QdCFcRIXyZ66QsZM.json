@@ -1,0 +1,486 @@
+{
+  "id": "QdCFcRIXyZ66QsZM",
+  "name": "PLETZER | Dynamic AI Procurement V9.3 – Teams Approval Handoff",
+  "active": false,
+  "nodes": [
+    {
+      "id": "c2ebd6b3-5eea-4662-b8b5-dc66b787617a",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        -272
+      ],
+      "disabled": false
+    },
+    {
+      "id": "86af69a6-aa3d-4020-96a7-219d099007fb",
+      "name": "Manual Example Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        -272
+      ],
+      "disabled": false
+    },
+    {
+      "id": "89aea861-8bda-4ba9-aa97-375ce6ba2ee0",
+      "name": "Geizhals Product Offers - Scrappa API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        240
+      ],
+      "disabled": false
+    },
+    {
+      "id": "7b3f15c9-1bfb-469f-bbd5-e614f1b806d3",
+      "name": "Normalize and Rank Merchant Offers",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        704,
+        240
+      ],
+      "disabled": false
+    },
+    {
+      "id": "a1a22893-c921-4f87-8e69-0d1deb66b1ca",
+      "name": "Prepare Gemini Decision Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1152,
+        528
+      ],
+      "disabled": false
+    },
+    {
+      "id": "7ddb71ad-70b3-479f-bff1-815e34ad875d",
+      "name": "Gemini 3 | Procurement Assessment",
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        304,
+        784
+      ],
+      "disabled": false
+    },
+    {
+      "id": "8f88fa80-7d62-4421-9266-b12a8ff6881e",
+      "name": "German Executive Procurement Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        608,
+        784
+      ],
+      "disabled": false
+    },
+    {
+      "id": "ed953b9d-ef06-4148-aec5-ff94c9ab2df9",
+      "name": "Prepare Three Alternative Searches",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        912,
+        240
+      ],
+      "disabled": false
+    },
+    {
+      "id": "d2eb3709-88b9-44df-9084-b74900461afa",
+      "name": "Search Alternative Products - Scrappa",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1136,
+        240
+      ],
+      "disabled": false
+    },
+    {
+      "id": "07fff190-3c86-4916-b0cf-aa8721de2be1",
+      "name": "Match Exact Alternative Products",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        272,
+        528
+      ],
+      "disabled": false
+    },
+    {
+      "id": "2ae0337b-9836-4b23-a589-2f923c5c41c5",
+      "name": "Only Identified Alternatives",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        496,
+        528
+      ],
+      "disabled": false
+    },
+    {
+      "id": "f47071ee-9ebf-4088-8d16-02377c0b4976",
+      "name": "Get Alternative Geizhals Offers - Scrappa",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        704,
+        528
+      ],
+      "disabled": false
+    },
+    {
+      "id": "4d0ae92c-c520-447a-9f74-e8946947bc31",
+      "name": "Aggregate Alternative Price Comparisons",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        928,
+        528
+      ],
+      "disabled": false
+    },
+    {
+      "id": "75eded4e-b355-4ce4-b26a-fcea02f090c1",
+      "name": "Secure Purchase Request Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -240,
+        208
+      ],
+      "disabled": false
+    },
+    {
+      "id": "df251f3a-6ab5-4ea9-aac7-521d7b689973",
+      "name": "Normalize Purchase Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        -16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "4895d087-7b08-4151-9cac-b1215028dc96",
+      "name": "Prepare AI Product Selection Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        432,
+        -16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "17d82e3a-68ed-4c7b-a7d8-3e171abb0251",
+      "name": "Gemini 3 | Choose Product + 3 Alternatives",
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        608,
+        -16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "6e4a7417-d399-42aa-854e-539908ecf373",
+      "name": "Parse AI Product Selection",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        -16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "b61da1b5-3321-4e79-8d89-5ae59a5024ac",
+      "name": "Search Requested Product - Scrappa",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1104,
+        -16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "9e936f76-b34b-4c95-b324-42d655977adb",
+      "name": "Match Requested Geizhals Product",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        256,
+        240
+      ],
+      "disabled": false
+    },
+    {
+      "id": "ff7f574a-fc51-4f9f-bf19-e99d2548774d",
+      "name": "Prepare Teams Approval Handoff",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        784,
+        784
+      ],
+      "disabled": false
+    },
+    {
+      "id": "0fcd2af2-3796-4cb4-ad92-95e55d8dd698",
+      "name": "Prepare Teams Approval Handoff2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        1024,
+        784
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Manual Example Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Geizhals Product Offers - Scrappa API": {
+      "main": [
+        [
+          {
+            "node": "Normalize and Rank Merchant Offers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize and Rank Merchant Offers": {
+      "main": [
+        [
+          {
+            "node": "Prepare Three Alternative Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Gemini Decision Prompt": {
+      "main": [
+        [
+          {
+            "node": "Gemini 3 | Procurement Assessment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini 3 | Procurement Assessment": {
+      "main": [
+        [
+          {
+            "node": "German Executive Procurement Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Three Alternative Searches": {
+      "main": [
+        [
+          {
+            "node": "Search Alternative Products - Scrappa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Alternative Products - Scrappa": {
+      "main": [
+        [
+          {
+            "node": "Match Exact Alternative Products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Match Exact Alternative Products": {
+      "main": [
+        [
+          {
+            "node": "Only Identified Alternatives",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Only Identified Alternatives": {
+      "main": [
+        [
+          {
+            "node": "Get Alternative Geizhals Offers - Scrappa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Alternative Geizhals Offers - Scrappa": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Alternative Price Comparisons",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Alternative Price Comparisons": {
+      "main": [
+        [
+          {
+            "node": "Prepare Gemini Decision Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual Example Request": {
+      "main": [
+        [
+          {
+            "node": "Normalize Purchase Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Secure Purchase Request Webhook": {
+      "main": [
+        [
+          {
+            "node": "Normalize Purchase Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Purchase Request": {
+      "main": [
+        [
+          {
+            "node": "Prepare AI Product Selection Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare AI Product Selection Prompt": {
+      "main": [
+        [
+          {
+            "node": "Gemini 3 | Choose Product + 3 Alternatives",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini 3 | Choose Product + 3 Alternatives": {
+      "main": [
+        [
+          {
+            "node": "Parse AI Product Selection",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse AI Product Selection": {
+      "main": [
+        [
+          {
+            "node": "Search Requested Product - Scrappa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Requested Product - Scrappa": {
+      "main": [
+        [
+          {
+            "node": "Match Requested Geizhals Product",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Match Requested Geizhals Product": {
+      "main": [
+        [
+          {
+            "node": "Geizhals Product Offers - Scrappa API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "German Executive Procurement Report": {
+      "main": [
+        [
+          {
+            "node": "Prepare Teams Approval Handoff",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Teams Approval Handoff": {
+      "main": [
+        [
+          {
+            "node": "Prepare Teams Approval Handoff2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-11-04T10:17:26.120Z"
+}
