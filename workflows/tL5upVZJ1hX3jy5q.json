@@ -1,0 +1,90 @@
+{
+  "id": "tL5upVZJ1hX3jy5q",
+  "name": "NAV test",
+  "active": false,
+  "nodes": [
+    {
+      "id": "4d8f45ad-0b6d-4c31-9aee-8561ca2e550f",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "15b1855d-2a10-4f13-9373-9c7538bfa22c",
+      "name": "NAV Auth & Params",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "6e8086a6-4349-41c2-81ef-b1fc61959cb8",
+      "name": "NAV API Call",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        448,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "176bee70-664e-420b-8132-59e393f7f2e9",
+      "name": "XML to JSON",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        672,
+        0
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "NAV Auth & Params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NAV Auth & Params": {
+      "main": [
+        [
+          {
+            "node": "NAV API Call",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NAV API Call": {
+      "main": [
+        [
+          {
+            "node": "XML to JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-02-24T19:40:36.936Z"
+}
