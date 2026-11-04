@@ -1,0 +1,46 @@
+{
+  "id": "0wNTaXGDy972bOJ4",
+  "name": "n8n–PostgreSQL connection test",
+  "active": false,
+  "nodes": [
+    {
+      "id": "f69b3027-e438-4bdf-9a32-2d9b07c9ae21",
+      "name": "When clicking ‘Execute workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "493dd861-7b86-4902-a409-d0006edd5508",
+      "name": "Execute a SQL query",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        208,
+        0
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-08-24T11:56:05.497Z"
+}
