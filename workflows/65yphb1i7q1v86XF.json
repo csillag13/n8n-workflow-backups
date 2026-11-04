@@ -1,0 +1,46 @@
+{
+  "id": "65yphb1i7q1v86XF",
+  "name": "My workflow 2",
+  "active": false,
+  "nodes": [
+    {
+      "id": "77334d5b-c3bf-4240-bdec-392d5cd74846",
+      "name": "When clicking ‘Execute workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "da7a94eb-2ccd-4300-95b4-2d8123f6f820",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        208,
+        0
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-06-09T06:21:04.000Z"
+}
