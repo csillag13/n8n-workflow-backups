@@ -1,0 +1,108 @@
+{
+  "id": "cQNcApENHU0ZIne3",
+  "name": "Whatsapp archive",
+  "active": false,
+  "nodes": [
+    {
+      "id": "bb6e80c7-055a-422c-bf0c-b61367b18fe0",
+      "name": "WhatsApp Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        112
+      ],
+      "disabled": false
+    },
+    {
+      "id": "0b4a9be4-ef69-46db-bf22-5942400111d6",
+      "name": "Szöveg vagy Média?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        112
+      ],
+      "disabled": false
+    },
+    {
+      "id": "db8e3f50-f1bd-4c10-8e84-88a6c36686c0",
+      "name": "Google Sheets (Szöveg)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        0,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "6f4d0740-7a4d-4215-a666-b4699b0cc3bb",
+      "name": "Google Drive (Feltöltés)",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        0,
+        208
+      ],
+      "disabled": false
+    },
+    {
+      "id": "ab126c35-0284-4317-ac92-d62ceee87d95",
+      "name": "Google Sheets (Média)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        240,
+        208
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "WhatsApp Webhook": {
+      "main": [
+        [
+          {
+            "node": "Szöveg vagy Média?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Szöveg vagy Média?": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets (Szöveg)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Drive (Feltöltés)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive (Feltöltés)": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets (Média)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-06-09T06:43:06.581Z"
+}
