@@ -1,0 +1,90 @@
+{
+  "id": "o2pDzvQkHMOOB5mU",
+  "name": "DEMO PLETZER | ERP Integration",
+  "active": true,
+  "nodes": [
+    {
+      "id": "5689f471-a36a-4368-8ca0-a358671c4970",
+      "name": "Receive Approved Request",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -352,
+        16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "d2272b85-5a71-4db3-a9a1-c127f290b915",
+      "name": "Validate Purchase Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -112,
+        16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "3cd527b7-24f5-49bd-bdb9-e0f1ada41f8e",
+      "name": "Simulate BMD ERP",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        128,
+        16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "a235cfbc-3c7f-4c7c-9e6e-c4316f325ace",
+      "name": "Return ERP Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        368,
+        16
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "Receive Approved Request": {
+      "main": [
+        [
+          {
+            "node": "Validate Purchase Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Purchase Request": {
+      "main": [
+        [
+          {
+            "node": "Simulate BMD ERP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simulate BMD ERP": {
+      "main": [
+        [
+          {
+            "node": "Return ERP Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-11-01T18:42:07.249Z"
+}
