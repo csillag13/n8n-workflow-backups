@@ -1,0 +1,134 @@
+{
+  "id": "tVMcO2qTS57FgbwO",
+  "name": "Hungarian Tax Authority (NAV) | Live API Integration",
+  "active": false,
+  "nodes": [
+    {
+      "id": "45a92357-e54b-4ba2-a6c0-7740b2153dd5",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "366e25f1-278a-48b0-a8d5-cff744a7962a",
+      "name": "NAV Auth & Params",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "b2f740da-dd3b-4ad7-a192-0b2cdd27bc1d",
+      "name": "NAV API Call",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        448,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "b50b9de1-deda-464b-864d-b2061b6bb3db",
+      "name": "XML to JSON",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        672,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "570f2829-5fdf-4b4f-94fd-2398f6b3f8d6",
+      "name": "Code in JavaScript",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "ec6fb1a8-1a0c-4c1b-a819-1bb98b422c92",
+      "name": "Append row in sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1088,
+        0
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "NAV Auth & Params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NAV Auth & Params": {
+      "main": [
+        [
+          {
+            "node": "NAV API Call",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NAV API Call": {
+      "main": [
+        [
+          {
+            "node": "XML to JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "XML to JSON": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-11-03T08:29:46.781Z"
+}
