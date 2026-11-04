@@ -1,0 +1,112 @@
+{
+  "id": "XdWu9aDofINn6iPH",
+  "name": "DEMO PLETZER | AI Procurement – Gemini Live Search",
+  "active": false,
+  "nodes": [
+    {
+      "id": "30180400-ed13-4b01-addd-b171614ce2aa",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "638bc019-c529-487b-9d31-91a30e1573ee",
+      "name": "Simulated IT Purchase Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        16,
+        16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "1e2a0d8f-f929-40cf-b510-01bde63aab3e",
+      "name": "Gemini 3 | Google Search",
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        288,
+        16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "f4feb6cd-a31e-4dfd-bf54-5386d28d65a3",
+      "name": "Validate Procurement Recommendation",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        544,
+        16
+      ],
+      "disabled": false
+    },
+    {
+      "id": "9816f6a5-0f3e-4f43-b468-af3a51335506",
+      "name": "German HTML Management Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        816,
+        16
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Simulated IT Purchase Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simulated IT Purchase Request": {
+      "main": [
+        [
+          {
+            "node": "Gemini 3 | Google Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini 3 | Google Search": {
+      "main": [
+        [
+          {
+            "node": "Validate Procurement Recommendation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Procurement Recommendation": {
+      "main": [
+        [
+          {
+            "node": "German HTML Management Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-11-03T11:06:14.716Z"
+}
