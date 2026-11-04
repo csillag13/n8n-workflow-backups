@@ -1,0 +1,219 @@
+{
+  "id": "nqU0NBcLxTzH8XKB",
+  "name": "GitHub - Workflow Backup (safe structural snapshot)",
+  "active": false,
+  "nodes": [
+    {
+      "id": "042936d6-6b44-4561-9c3b-21c109dd3474",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -192,
+        -512
+      ],
+      "disabled": false
+    },
+    {
+      "id": "91efb7c6-c36e-43ca-a33d-a1276ee0a1fc",
+      "name": "Daily at 03:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -192,
+        -304
+      ],
+      "disabled": false
+    },
+    {
+      "id": "f1a13909-5b42-4edb-8fc8-cd5296eb5471",
+      "name": "Fetch workflows",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        48,
+        -400
+      ],
+      "disabled": false
+    },
+    {
+      "id": "b591b669-0bd8-4ba8-bcee-8c2ce426beb9",
+      "name": "Prepare safe files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        288,
+        -400
+      ],
+      "disabled": false
+    },
+    {
+      "id": "551ce2f6-99a3-4513-88f8-71d5c24dd2ab",
+      "name": "GitHub GET existing",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        752,
+        -144
+      ],
+      "disabled": false
+    },
+    {
+      "id": "9a59cdb5-cb16-401a-899c-b0c1197ce36d",
+      "name": "Build GitHub PUT",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        976,
+        -144
+      ],
+      "disabled": false
+    },
+    {
+      "id": "d025b242-e653-4e02-87a0-3f7cd5a689d2",
+      "name": "Needs commit?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        -144
+      ],
+      "disabled": false
+    },
+    {
+      "id": "cd39f6dd-0ee1-4d9e-a8b3-f7cfeaf1e8ee",
+      "name": "GitHub PUT file",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1440,
+        -80
+      ],
+      "disabled": false
+    },
+    {
+      "id": "8299f3af-eafa-456b-a3f0-30afbc775c47",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        496,
+        -160
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch workflows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily at 03:00": {
+      "main": [
+        [
+          {
+            "node": "Fetch workflows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch workflows": {
+      "main": [
+        [
+          {
+            "node": "Prepare safe files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare safe files": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub GET existing": {
+      "main": [
+        [
+          {
+            "node": "Build GitHub PUT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build GitHub PUT": {
+      "main": [
+        [
+          {
+            "node": "Needs commit?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs commit?": {
+      "main": [
+        [
+          {
+            "node": "GitHub PUT file",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "GitHub GET existing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub PUT file": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-11-04T12:33:47.321Z"
+}
