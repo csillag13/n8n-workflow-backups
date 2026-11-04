@@ -1,0 +1,168 @@
+{
+  "id": "V4RmovGWrrO95Uhw",
+  "name": "Email then Odoo Discuss (New product)",
+  "active": true,
+  "nodes": [
+    {
+      "id": "427ebd82-5dbe-44f6-9342-005bdec3cce2",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -400,
+        -688
+      ],
+      "disabled": false
+    },
+    {
+      "id": "de48396c-658d-4acd-9913-ef6cafbe6a9e",
+      "name": "Send an Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        -176,
+        -688
+      ],
+      "disabled": false
+    },
+    {
+      "id": "d9321e22-68bd-46ba-b9d0-d31378f6b707",
+      "name": "Odoo Login",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        48,
+        -688
+      ],
+      "disabled": false
+    },
+    {
+      "id": "e35d9eb7-b8b6-491e-9c33-eff6c8ec9060",
+      "name": "Find Discuss Channel",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        -688
+      ],
+      "disabled": false
+    },
+    {
+      "id": "fea05469-371a-4bfe-98b5-2dfece81308b",
+      "name": "Channel Found?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        560,
+        -688
+      ],
+      "disabled": false
+    },
+    {
+      "id": "226d20b6-1d34-4b60-8a10-4e863023e92d",
+      "name": "Post to Discuss",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        -816
+      ],
+      "disabled": false
+    },
+    {
+      "id": "1a664e84-f2a8-43c1-b5e1-e8968b0fdf70",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        176,
+        -848
+      ],
+      "disabled": false
+    },
+    {
+      "id": "d8170097-2a4b-4d11-8adb-8c6c036fcfc9",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        -848
+      ],
+      "disabled": false
+    },
+    {
+      "id": "2eb82967-fc51-4f05-88e5-3a79a4251ff3",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -448,
+        -848
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Send an Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send an Email": {
+      "main": [
+        [
+          {
+            "node": "Odoo Login",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Odoo Login": {
+      "main": [
+        [
+          {
+            "node": "Find Discuss Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Discuss Channel": {
+      "main": [
+        [
+          {
+            "node": "Channel Found?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Channel Found?": {
+      "main": [
+        [
+          {
+            "node": "Post to Discuss",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-10-31T18:01:47.900Z"
+}
