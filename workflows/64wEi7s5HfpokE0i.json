@@ -1,0 +1,167 @@
+{
+  "id": "64wEi7s5HfpokE0i",
+  "name": "OCR with AI",
+  "active": false,
+  "nodes": [
+    {
+      "id": "6ca25cdb-1826-4460-8321-f5b1824c5ff1",
+      "name": "Google Drive Trigger",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        16,
+        208
+      ],
+      "disabled": false
+    },
+    {
+      "id": "35cbb655-73d7-4d45-a144-dff64fae329f",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        224,
+        208
+      ],
+      "disabled": false
+    },
+    {
+      "id": "07ed8b59-c3c8-4e4e-be12-a92007b7a1dc",
+      "name": "Extract text",
+      "type": "n8n-nodes-base.mistralAi",
+      "typeVersion": 1,
+      "position": [
+        432,
+        208
+      ],
+      "disabled": false
+    },
+    {
+      "id": "5275978b-4fff-4cd7-ad23-9d37ba671dae",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        640,
+        208
+      ],
+      "disabled": false
+    },
+    {
+      "id": "c1d67330-ac57-4d45-9ad4-ecfda3414f3c",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        544,
+        416
+      ],
+      "disabled": false
+    },
+    {
+      "id": "fbb3d5a4-d4a5-4109-9299-4a89befbb7b8",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        848,
+        416
+      ],
+      "disabled": false
+    },
+    {
+      "id": "4ce7c198-a1a3-4652-8a1d-511035e655dc",
+      "name": "Append row in sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        992,
+        208
+      ],
+      "disabled": false
+    },
+    {
+      "id": "5e3b7976-8a31-42d7-a0c6-29438baa4b0b",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract text": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Extract text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-02-17T18:16:07.091Z"
+}
