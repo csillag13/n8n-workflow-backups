@@ -53,7 +53,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        752,
+        976,
         -144
       ],
       "disabled": false
@@ -64,7 +64,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        976,
+        1200,
         -144
       ],
       "disabled": false
@@ -75,7 +75,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1200,
+        1424,
         -144
       ],
       "disabled": false
@@ -86,7 +86,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1440,
+        1664,
         -80
       ],
       "disabled": false
@@ -97,8 +97,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        496,
-        -160
+        480,
+        -144
       ],
       "disabled": false
     },
@@ -108,8 +108,19 @@
       "type": "n8n-nodes-smstools.smstools",
       "typeVersion": 1,
       "position": [
-        752,
-        -368
+        1232,
+        -336
+      ],
+      "disabled": true
+    },
+    {
+      "id": "0e7666b7-9e64-4e85-8719-201a8ad8e61d",
+      "name": "Code in JavaScript",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        -336
       ],
       "disabled": false
     }
@@ -203,7 +214,7 @@
       "main": [
         [
           {
-            "node": "Send a message",
+            "node": "Code in JavaScript",
             "type": "main",
             "index": 0
           }
@@ -227,10 +238,21 @@
           }
         ]
       ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
     "executionOrder": "v1"
   },
-  "updatedAt": "2026-11-04T12:54:54.810Z"
+  "updatedAt": "2026-11-04T12:58:34.604Z"
 }
