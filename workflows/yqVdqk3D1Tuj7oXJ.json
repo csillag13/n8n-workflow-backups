@@ -1,0 +1,90 @@
+{
+  "id": "yqVdqk3D1Tuj7oXJ",
+  "name": "AI DEMO | PLETZER",
+  "active": false,
+  "nodes": [
+    {
+      "id": "ac68c85d-16f7-4ee3-a930-187f79c61e5e",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        -128
+      ],
+      "disabled": false
+    },
+    {
+      "id": "a0a0624a-8b78-420e-9d81-a2ccacd73db3",
+      "name": "Prepare Demo Offers",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -48,
+        -128
+      ],
+      "disabled": false
+    },
+    {
+      "id": "2caa0013-29b0-43ad-a522-e6a85d19f811",
+      "name": "Gemini Assess Offers",
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        -128
+      ],
+      "disabled": false
+    },
+    {
+      "id": "2d771196-a6d4-4eec-b53a-6305cd44dded",
+      "name": "Procurement Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        -128
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Prepare Demo Offers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Demo Offers": {
+      "main": [
+        [
+          {
+            "node": "Gemini Assess Offers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini Assess Offers": {
+      "main": [
+        [
+          {
+            "node": "Procurement Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-11-03T11:07:47.000Z"
+}
