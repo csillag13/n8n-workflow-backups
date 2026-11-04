@@ -1,0 +1,156 @@
+{
+  "id": "dO5XHKqyAnBdluBt",
+  "name": "Hungarian Tax Authority (NAV) | Secure V2",
+  "active": false,
+  "nodes": [
+    {
+      "id": "ba3fe788-a588-4dea-b822-5c1c71a5c066",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "f4231f39-f75a-41d1-a22d-b90b388bba40",
+      "name": "NAV Auth & Params",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "1be87341-519b-4464-a544-28e2b71cfbb1",
+      "name": "NAV API Call",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        672,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "d025a03f-9df4-439e-a728-e22991f70c59",
+      "name": "XML to JSON",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        896,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "2036b8ba-ef0f-4305-ab7a-f08579f5076f",
+      "name": "Code in JavaScript",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1104,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "dbc85b03-2485-4322-ba10-500f92466a8d",
+      "name": "Append row in sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1312,
+        0
+      ],
+      "disabled": false
+    },
+    {
+      "id": "4e3b4acc-350f-4050-ac3d-972e772b2db1",
+      "name": "NAV Secure Authentication",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        448,
+        0
+      ],
+      "disabled": false
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "NAV Auth & Params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NAV Auth & Params": {
+      "main": [
+        [
+          {
+            "node": "NAV Secure Authentication",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NAV API Call": {
+      "main": [
+        [
+          {
+            "node": "XML to JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "XML to JSON": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NAV Secure Authentication": {
+      "main": [
+        [
+          {
+            "node": "NAV API Call",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "updatedAt": "2026-11-03T09:27:46.765Z"
+}
