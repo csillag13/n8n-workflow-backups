@@ -9,8 +9,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
       "position": [
-        0,
-        0
+        720,
+        -256
       ],
       "disabled": false
     },
@@ -20,8 +20,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        224,
-        0
+        944,
+        -256
       ],
       "disabled": false
     },
@@ -31,8 +31,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        672,
-        0
+        1392,
+        -256
       ],
       "disabled": false
     },
@@ -75,8 +75,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
-        448,
-        0
+        1168,
+        -256
       ],
       "disabled": false
     }
@@ -152,5 +152,5 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "updatedAt": "2026-11-03T09:27:46.765Z"
+  "updatedAt": "2026-11-16T15:43:42.794Z"
 }
