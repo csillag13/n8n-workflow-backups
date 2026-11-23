@@ -9,8 +9,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -192,
-        -512
+        -144,
+        -976
       ],
       "disabled": false
     },
@@ -20,8 +20,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -192,
-        -304
+        -144,
+        -768
       ],
       "disabled": false
     },
@@ -31,8 +31,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        48,
-        -400
+        112,
+        -880
       ],
       "disabled": false
     },
@@ -42,8 +42,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        288,
-        -400
+        336,
+        -880
       ],
       "disabled": false
     },
@@ -53,8 +53,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        976,
-        -144
+        608,
+        -592
       ],
       "disabled": false
     },
@@ -64,8 +64,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1200,
-        -144
+        832,
+        -592
       ],
       "disabled": false
     },
@@ -75,8 +75,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1424,
-        -144
+        480,
+        -336
       ],
       "disabled": false
     },
@@ -86,8 +86,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1744,
-        -96
+        848,
+        -176
       ],
       "disabled": false
     },
@@ -97,8 +97,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        480,
-        -144
+        384,
+        -608
       ],
       "disabled": false
     },
@@ -108,8 +108,8 @@
       "type": "n8n-nodes-smstools.smstools",
       "typeVersion": 1,
       "position": [
-        992,
-        -400
+        896,
+        -864
       ],
       "disabled": true
     },
@@ -119,8 +119,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        656,
-        -480
+        560,
+        -944
       ],
       "disabled": false
     },
@@ -130,8 +130,8 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.2,
       "position": [
-        992,
-        -560
+        896,
+        -1024
       ],
       "disabled": false
     }
@@ -275,5 +275,5 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "updatedAt": "2026-11-04T14:44:23.815Z"
+  "updatedAt": "2026-11-16T15:37:47.897Z"
 }
