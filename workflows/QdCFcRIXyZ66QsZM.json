@@ -20,7 +20,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        0,
+        -16,
         -272
       ],
       "disabled": false
@@ -31,8 +31,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        480,
-        240
+        896,
+        64
       ],
       "disabled": false
     },
@@ -42,8 +42,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        704,
-        240
+        224,
+        288
       ],
       "disabled": false
     },
@@ -53,8 +53,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1152,
-        528
+        880,
+        512
       ],
       "disabled": false
     },
@@ -64,8 +64,8 @@
       "type": "@n8n/n8n-nodes-langchain.googleGemini",
       "typeVersion": 1.1,
       "position": [
-        304,
-        784
+        224,
+        736
       ],
       "disabled": false
     },
@@ -75,8 +75,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        608,
-        784
+        528,
+        736
       ],
       "disabled": false
     },
@@ -86,8 +86,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        912,
-        240
+        448,
+        288
       ],
       "disabled": false
     },
@@ -97,8 +97,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1136,
-        240
+        672,
+        288
       ],
       "disabled": false
     },
@@ -108,8 +108,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        272,
-        528
+        896,
+        288
       ],
       "disabled": false
     },
@@ -119,8 +119,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        496,
-        528
+        240,
+        512
       ],
       "disabled": false
     },
@@ -130,8 +130,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        704,
-        528
+        464,
+        512
       ],
       "disabled": false
     },
@@ -141,8 +141,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        928,
-        528
+        656,
+        512
       ],
       "disabled": false
     },
@@ -152,8 +152,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -240,
-        208
+        -16,
+        -80
       ],
       "disabled": false
     },
@@ -164,7 +164,7 @@
       "typeVersion": 2,
       "position": [
         208,
-        -16
+        -176
       ],
       "disabled": false
     },
@@ -175,7 +175,7 @@
       "typeVersion": 2,
       "position": [
         432,
-        -16
+        -176
       ],
       "disabled": false
     },
@@ -185,8 +185,8 @@
       "type": "@n8n/n8n-nodes-langchain.googleGemini",
       "typeVersion": 1.1,
       "position": [
-        608,
-        -16
+        656,
+        -176
       ],
       "disabled": false
     },
@@ -196,8 +196,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        896,
-        -16
+        224,
+        64
       ],
       "disabled": false
     },
@@ -207,8 +207,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1104,
-        -16
+        448,
+        64
       ],
       "disabled": false
     },
@@ -218,8 +218,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        256,
-        240
+        672,
+        64
       ],
       "disabled": false
     },
@@ -229,8 +229,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        784,
-        784
+        752,
+        736
       ],
       "disabled": false
     },
@@ -240,8 +240,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
-        1024,
-        784
+        976,
+        736
       ],
       "disabled": false
     }
@@ -482,5 +482,5 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "updatedAt": "2026-11-04T10:17:26.120Z"
+  "updatedAt": "2026-11-10T13:13:05.500Z"
 }
