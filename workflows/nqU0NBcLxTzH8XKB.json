@@ -1,7 +1,7 @@
 {
   "id": "nqU0NBcLxTzH8XKB",
   "name": "GitHub - Workflow Backup (safe structural snapshot)",
-  "active": false,
+  "active": true,
   "nodes": [
     {
       "id": "042936d6-6b44-4561-9c3b-21c109dd3474",
@@ -275,5 +275,5 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "updatedAt": "2026-11-16T15:37:47.897Z"
+  "updatedAt": "2026-11-25T03:59:20.189Z"
 }
